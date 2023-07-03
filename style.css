@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.video-cont{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+}
+video{
+    height: 100%;
+    width: 100%;
+}
+.action-cont{
+    height: 10rem;
+    width: 4rem;
+    background-color: aqua;
+    position: absolute;
+    top: calc((100vh - 12rem) /2);
+    right: 4rem;
+}
+
+.record-btn{
+    background-color: red;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    
+}
+.action-cont>*{
+   width: 100%;
+   height: 4rem;
+   border: 5px solid white;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.capture-btn{
+    background-color: white;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+}
+.timer-cont{
+    position: absolute;
+    color: pink;
+    bottom: 8rem;
+    left: 3rem;
+}
+.filter-cont{
+   height: 16rem;
+   width: 5rem;
+   background-color: lightgray;
+   position: absolute;
+   top: calc((100vh - 16rem)/2);
+   left: 3rem;
+}
+
+
+.filter{
+    margin: 0%;
+    padding: 0%;
+    height: 4rem;
+    background-image: url(landscape-shot-beautiful-valley-surrounded-by-huge-mountains-with-snowy-peaks.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.orange{
+    background-color: #ffa50052;
+}
+.brown{
+    background-color: #a52a2a59;
+}
+.pink{
+    background-color: #ffc0cb57;
+}
+.transparent{
+    background-color: transparent;
+}
