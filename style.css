@@ -17,10 +17,15 @@ video{
 .action-cont{
     height: 10rem;
     width: 4rem;
-    background-color: aqua;
+    /* background-color: aqua; */
     position: absolute;
     top: calc((100vh - 12rem) /2);
     right: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-around;
+    z-index: 2;
 }
 
 .record-btn{
@@ -47,9 +52,10 @@ video{
 }
 .timer-cont{
     position: absolute;
-    color: pink;
-    bottom: 8rem;
+    color: white;
+    bottom: 6rem;
     left: 3rem;
+    z-index: 2;
 }
 .filter-cont{
    height: 16rem;
@@ -58,6 +64,7 @@ video{
    position: absolute;
    top: calc((100vh - 16rem)/2);
    left: 3rem;
+   z-index: 2;
 }
 
 
@@ -69,6 +76,7 @@ video{
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
+    background-blend-mode: color-dodge;
 }
 .orange{
     background-color: #ffa50052;
@@ -81,4 +89,23 @@ video{
 }
 .transparent{
     background-color: transparent;
+}
+.filter-layer{
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    /* background-color: lightpink; */
+    position: absolute;
+    top: 0;
+}
+
+.material.icons{
+    color: white;
+    font-size: 46px;
+}
+.gallery{
+    position: absolute;
+    color: white;
+    bottom: 8rem;
+    right: 6rem;
 }
