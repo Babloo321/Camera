@@ -56,6 +56,10 @@ video{
     bottom: 6rem;
     left: 3rem;
     z-index: 2;
+    
+}
+.timer{
+    display: none;
 }
 .filter-cont{
    height: 16rem;
