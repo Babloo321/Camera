@@ -1,6 +1,6 @@
 let video = document.querySelector("video");
 let captureBtnCont = document.querySelector(".capture-btn-cont");
-let captureBtn = document.querySelector(".capture");
+let captureBtn = document.querySelector(".capture-btn");
 let recordBtnCont = document.querySelector(".record-btn-cont");
 let recordBtn = document.querySelector(".record-btn");
 let transparentColor = "transparent";
@@ -8,8 +8,8 @@ let recorder;
 let shouldRecord = false;
 let chunks = [];
 let constraints={
-    // video: true,
-    // audio: true
+    video: true,
+    audio: true
 }
 navigator.mediaDevices.getUserMedia(constraints)
 .then((stream) => {
@@ -38,6 +38,7 @@ navigator.mediaDevices.getUserMedia(constraints)
 
 // click photo
 captureBtnCont.addEventListener("click", () => {
+    captureBtn.classList.add("scale-capture");
     let canvas = document.createElement("canvas");
     let tool = canvas.getContext("2d");
     canvas.width = video.videoWidth;
@@ -50,24 +51,33 @@ captureBtnCont.addEventListener("click", () => {
     tool.fillRect(0, 0, canvas.width, canvas.height);
 
     let imageUrl = canvas.toDataURL("image/jpeg");
-    let img = document.createElement("img");
-    img.src = imageUrl;
-    document.body.append(img);
+    // let img = document.createElement("img");
+    // img.src = imageUrl;
+    // document.body.append(img);
+    setTimeout(()=>{
+        captureBtn.classList.remove('scale-capture');
+    }, 550)
 });
 
 recordBtnCont.addEventListener("click", () => {
+    
     shouldRecord = !shouldRecord;
     if(shouldRecord){
+        recordBtn.classList.add("scale-record");
         // start recording
         recorder.start();
         // start timer
         startTimer();
     }else{
+        setTimeout(()=>{
+            recordBtn.classList.remove('scale-record');
+        }, 550);
         // stop recording
         recorder.stop();
         // stop timer
         stopTimer();
     }
+   
 })
 
 let timer = document.querySelector(".timer");
@@ -93,9 +103,20 @@ function startTimer(){
         counter++;
     }
    timerId = setInterval(displayTimer, 1000);
+   counter = 0;
 }
 function stopTimer(){
     clearInterval(timerId);
     timer.innerText = "00:00:00";
     timer.style.display = 'none';
 }
+
+// add filters on camera
+let filterLayer = document.querySelector(".filter-layer");
+let filterArr = document.querySelectorAll(".filter");
+filterArr.forEach((filterElem)=>{
+    filterElem.addEventListener("click", ()=>{
+        transparentColor = getComputedStyle(filterElem).getPropertyValue("background-color");
+        filterLayer.style.backgroundColor = transparentColor;
+    })
+})
