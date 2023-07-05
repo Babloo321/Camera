@@ -30,8 +30,8 @@ video{
 
 .record-btn{
     background-color: red;
-    height: 3rem;
-    width: 3rem;
+    height: 2.7rem;
+    width: 2.7rem;
     border-radius: 50%;
     
 }
@@ -46,8 +46,8 @@ video{
 }
 .capture-btn{
     background-color: white;
-    height: 3rem;
-    width: 3rem;
+    height: 2.7rem;
+    width: 2.7rem;
     border-radius: 50%;
 }
 .timer-cont{
@@ -102,7 +102,35 @@ video{
     position: absolute;
     top: 0;
 }
+/* pop up the button for capture button*/
+.scale-capture{
+    animation-name: scale-capture;
+    animation-iteration-count: 1;
+    animation-duration: 0.5s;
+}
+@keyframes scale-capture{
+    0%{
+        transform : scale(0.8);
+    }
+    100%{
+        transform : scale(1.2);
+    }
+}
 
+/*pop up the button for recorder button */
+.scale-record{
+    animation-name: scale-record;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+} 
+@keyframes scale-record{
+    0%{
+        transform: scale(0.8);
+    }
+    100%{
+        transform : scale(1.2);
+    }
+}
 .material.icons{
     color: white;
     font-size: 46px;
