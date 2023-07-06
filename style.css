@@ -1,4 +1,4 @@
-*{
+ *{
     box-sizing: border-box;
 }
 body{
@@ -140,4 +140,7 @@ video{
     color: white;
     bottom: 8rem;
     right: 6rem;
+}
+.gallery:hover{
+    cursor: pointer;
 }

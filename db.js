@@ -1,4 +1,5 @@
 let db;
+let a = 123;
 let openRequest = indexedDB.open('myDataBase', 1);
 openRequest.addEventListener("success", ()=>{
     console.log('db connect');

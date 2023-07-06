@@ -4,32 +4,65 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: antiquewhite;
+    background-color: lightskyblue;
 }
 .back:hover{
     cursor: pointer;
 }
 .back{
-    height: 4rem;
-    width: 4rem;
+    height: 5rem;
+    width: 5rem;
     background-color: black;
     color: white;
     border-radius: 50%;
-    position: fixed;
-    bottom: 5rem;
-    right: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
+    position:fixed;
+    bottom: 4rem;
+    right: 5rem;
 }
-.gallery-cont{
-    min-height: 100vh;
-    width: 100vw;
-}
-.gallery-cont>p{
+p{
+    margin-top: 0;
     text-align: center;
     font-size: 5rem;
     font-family: serif;
+}
+.gallery-cont{
+    background-color: rgb(5, 105, 105);
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+.media{
+    height: calc(100% - 2rem -2rem);
+}
+.media>*{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.media-cont{
+   height: 15rem;
+   width: 15rem;
+  border: 10px solid white;
+  margin: 2rem;
+}
+.action-btn{
+    height: 2rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.action-btn:hover{
+    cursor: pointer;
+}
+.download{
+    background-color: black;
+}
+.delete{
+    background-color: red;
 }

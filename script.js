@@ -1,3 +1,9 @@
+let galleryFolder = document.querySelector(".gallery");
+galleryFolder.addEventListener("click", ()=> {
+    location.assign("./gallery.html");
+})
+
+var uid = new ShortUniqueId();
 let video = document.querySelector("video");
 let captureBtnCont = document.querySelector(".capture-btn-cont");
 let captureBtn = document.querySelector(".capture-btn");
@@ -29,10 +35,26 @@ navigator.mediaDevices.getUserMedia(constraints)
         console.log("recording stop");
         let vidUrl = URL.createObjectURL(blob);
         console.log(vidUrl);
-        let a = document.createElement('a');
-        a.href = vidUrl;
-        a.download = "myVideo.mp4";
-        a.click();
+
+            // store in dataBase
+        if(db){
+            let videoId = uid();
+            let dbTransaction = db.transaction('video', "readwrite");
+            let videoStore = dbTransaction.objectStore("video");
+            let videoEntry = {
+                id: `vid-${videoId}`,
+                url: videoUrl,
+            };
+            let addRequest = videoStore.add(videoEntry);
+            addRequest.onsuccess = () =>{
+                console.log("video added to db successfully");
+            }
+        }
+        
+        // let a = document.createElement('a');
+        // a.href = vidUrl;
+        // a.download = "myVideo.mp4";
+        // a.click();
     })
 });
 
@@ -54,6 +76,21 @@ captureBtnCont.addEventListener("click", () => {
     // let img = document.createElement("img");
     // img.src = imageUrl;
     // document.body.append(img);
+
+    // store in db
+    if(db){
+        let imageId = uid();
+        let dbTransaction = db.transaction('image', "readwrite");
+        let imageStore = dbTransaction.objectStore("image");
+        let imageEntry = {
+            id: `img-${imageId}`,
+            url: imageUrl,
+        };
+        let addRequest = imageStore.add(imageEntry);
+        addRequest.onsuccess = () =>{
+            console.log("image added to db successfully");
+        }
+    }
     setTimeout(()=>{
         captureBtn.classList.remove('scale-capture');
     }, 550)
