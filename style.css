@@ -20,10 +20,11 @@ video{
     /* background-color: aqua; */
     position: absolute;
     top: calc((100vh - 12rem) /2);
+    /* left: calc((100vw - 10rem)); */
     right: 4rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     justify-content: space-around;
     z-index: 2;
 }
@@ -38,8 +39,8 @@ video{
 .action-cont>*{
    width: 100%;
    height: 4rem;
-   border: 5px solid white;
    border-radius: 50%;
+   border: 5px solid white;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -52,8 +53,8 @@ video{
 }
 .timer-cont{
     position: absolute;
-    color: white;
     bottom: 6rem;
+    color: white;
     left: 3rem;
     z-index: 2;
     
@@ -62,10 +63,10 @@ video{
     display: none;
 }
 .filter-cont{
+    position: absolute;
+    background-color: lightgray;
    height: 16rem;
    width: 5rem;
-   background-color: lightgray;
-   position: absolute;
    top: calc((100vh - 16rem)/2);
    left: 3rem;
    z-index: 2;
@@ -73,15 +74,17 @@ video{
 
 
 .filter{
-    margin: 0%;
-    padding: 0%;
+    /* margin: 0%;
+    padding: 0%; */
     height: 4rem;
     background-image: url(landscape-shot-beautiful-valley-surrounded-by-huge-mountains-with-snowy-peaks.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-blend-mode: color-dodge;
+    background-blend-mode: color-burn;
 }
+
+
 .orange{
     background-color: #ffa50052;
 }
@@ -94,6 +97,7 @@ video{
 .transparent{
     background-color: transparent;
 }
+
 .filter-layer{
     height: 100vh;
     width: 100vw;
@@ -101,6 +105,7 @@ video{
     /* background-color: lightpink; */
     position: absolute;
     top: 0;
+    left: 0;
 }
 /* pop up the button for capture button*/
 .scale-capture{
@@ -108,39 +113,48 @@ video{
     animation-iteration-count: 1;
     animation-duration: 0.5s;
 }
+.scale-record{
+    animation-name: scale-record;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+} 
+
 @keyframes scale-capture{
     0%{
         transform : scale(0.8);
     }
+
     100%{
         transform : scale(1.2);
     }
 }
 
 /*pop up the button for recorder button */
-.scale-record{
-    animation-name: scale-record;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-} 
+
 @keyframes scale-record{
     0%{
         transform: scale(0.8);
     }
+
     100%{
         transform : scale(1.2);
     }
 }
+
 .material.icons{
     color: white;
-    font-size: 46px;
+    font-size: 3rem;
 }
+
 .gallery{
     position: absolute;
-    color: white;
     bottom: 8rem;
     right: 6rem;
+    z-index: 2;
+    /* color: white; */
+
 }
+
 .gallery:hover{
     cursor: pointer;
 }
